@@ -1,4 +1,7 @@
 package com.bridgelabz.employeePayrollService;
+
+import java.io.IOException;
+
 /**
  * @author - Shreyash Jadhav
  */
@@ -17,15 +20,21 @@ public class Main {
         int option;		// variable to store value of console options
         do {
             System.out.println("\n *** Available Options *** ");
-            System.out.println(" 1. Add Employee Details \n 2. Show Employee Details \n 3. Exit");
+            System.out.println(" 1. Add Employee Details \n 2. Show Employee Details \n 3. Check File/Dir Exist" +
+                    " \n 4. Create Directory \n 5. Create File \n 6. Delete File/Dir \n 7. List Files & Dir \n 8. Exit");
             System.out.print(" Enter option to perform activity : ");
             option = employeePayrollService.scan.nextInt();
             switch (option) {
                 case 1 -> employeePayrollService.readEmployeeData();
                 case 2 -> employeePayrollService.writeEmployeeData();
-                case 3 -> System.out.println("\n Exited Successfully");
-                default -> System.out.print("\n Option not Available \n");
+                case 3 -> employeePayrollService.checkFileOrDirExists();
+                case 4 -> employeePayrollService.createDirectory();
+                case 5 -> employeePayrollService.createFile();
+                case 6 -> employeePayrollService.deleteFileOrDir();
+                case 7 -> employeePayrollService.listFilesAndDir();
+                case 8 -> System.out.println("\n Exited Successfully");
+                default -> System.out.println("\n Option not Available");
             }
-        } while(option != 3);
+        } while(option != 8);
     }
 }
